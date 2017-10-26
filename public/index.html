@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .body {
+            width: 85%;;
+            margin: 0 auto;;
+        }
+
+        h1 {
+            text-align: center;
+            color: blue;
+        }
+
+        .text {
+            width: 100%;
+            height: 400px;
+            box-sizing: border-box;
+            border: 1px solid #6f6f6f;
+        }
+
+        #inp {
+            background-color: blue;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            margin-top: 15px;
+            word-break:break-all;
+            word-wrap:break-word;
+
+        }
+
+        input {
+            text-indent: 6px;
+        }
+
+        button {
+            background-color: blue;
+            color: wheat;
+        }
+
+        #in1 {
+            width: 30%;
+            margin-left: 30px;
+        }
+
+        #in2 {
+            width: 40%;
+            margin: 0 30px;
+        }
+        h2{
+            font-weight: bold;; color: blue;
+            height: 20px;;
+            cursor: pointer;
+            display: inline-block;;
+            text-indent: 20px;;
+        }
+        h2:hover{ color: red;}
+p{
+    height: 15px;;
+    text-indent: 70px;;
+}
+
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+                url: "http://localhost:3000/",
+                type: "POST",
+                success: function (e) {
+                    $('button').click(function () {
+                        $(".text").append("<h2>" + e.name + "</h2>" + "<p>" + e.name + "</p>")
+                    })
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+
+<div class="body">
+    <h1>Skier Dictionary</h1>
+
+    <div class="text"></div>
+    <div id="inp">
+        <input type="text" placeholder="new tern..." id="in1" />
+        <input type="text" placeholder="new defintion..." id="in2"/>
+        <button>Add Tem</button>
+    </div>
+</div>
+
+
+</body>
+</html>
